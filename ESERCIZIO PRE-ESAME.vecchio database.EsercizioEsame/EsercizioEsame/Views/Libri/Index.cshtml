@@ -1,0 +1,117 @@
+﻿@model IEnumerable<EsercizioEsame.Models.Libro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "Libri", FormMethod.Get))
+{
+    
+        List<SelectListItem> listDrop = new List<SelectListItem>();
+        listDrop.Add(new SelectListItem
+        {
+            Text = "Autore",
+            Value = "AUTORE"
+        });
+        listDrop.Add(new SelectListItem
+        {
+            Text = "Titolo",
+            Value = "TITOLO",
+            Selected = true
+        });
+        listDrop.Add(new SelectListItem
+        {
+            Text = "Editore",
+            Value = "EDITORE"
+        });
+    
+
+    @Html.DropDownList("DropSearch", listDrop, new { @class = "form-control" })
+
+    @*INPUTBOX*@
+    @Html.TextBox("SearchString")
+    <input type="submit" value="Search" />
+
+}
+
+
+
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Autore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titolo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Editore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Anno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Luogo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pagine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classificazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Collocazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Copie)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titolo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Editore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Luogo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pagine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classificazione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Collocazione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Copie)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Codice }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Codice }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Codice })
+            </td>
+        </tr>
+    }
+
+</table>

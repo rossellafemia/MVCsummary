@@ -1,0 +1,73 @@
+﻿@model Cloud_BikeStore_Femia.Models.Order
+
+@{
+    ViewData["Title"] = "Details";
+    string productList = "";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RequiredDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RequiredDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShippedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShippedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Raw("Products")
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var o in Model.OrderItems)
+            {
+                productList += o.Product.ProductName + ", ";
+            }
+            @Html.Raw(productList)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer)
+            <a asp-action="Details" asp-controller="Customers" asp-route-id="@Model.CustomerId">Details</a>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrderStatus.StatusName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Staff)
+            <a asp-action="Details" asp-controller="Staffs" asp-route-id="@Model.StaffId">Details</a>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Staff.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Store)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Store.StoreName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.OrderId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

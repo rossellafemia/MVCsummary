@@ -1,0 +1,87 @@
+﻿@model Cloud_BikeStore_Femia.ViewModel.DashBoardSummary
+@{
+    ViewData["Title"] = "DashBoard";
+}
+
+<h1>DashBoard</h1>
+
+<p class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+</p>
+
+<p class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Index">Customers</a>
+</p>
+
+<p class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Staffs" asp-action="Index">Staffs</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Raw("Anno")
+            </th>
+            <th>
+                @Html.Raw("Fatturato Annuo")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model.ListaFatturato)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => f.Anno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => f.FatturatoAnnuo)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Raw("Prodotti in Scorta")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProdottiScorta)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Raw("Prodotti esauriti")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProdottiEsauriti)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

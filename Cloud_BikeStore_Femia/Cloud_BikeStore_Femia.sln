@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloud_BikeStore_Femia", "Cloud_BikeStore_Femia\Cloud_BikeStore_Femia.csproj", "{1C2BD8DE-504F-4783-B513-F5DAB300A870}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C2BD8DE-504F-4783-B513-F5DAB300A870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C2BD8DE-504F-4783-B513-F5DAB300A870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C2BD8DE-504F-4783-B513-F5DAB300A870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C2BD8DE-504F-4783-B513-F5DAB300A870}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4B47DF9-297A-4ED3-90B4-4F37E1DBC42C}
+	EndGlobalSection
+EndGlobal
